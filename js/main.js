@@ -1,22 +1,26 @@
-var cards = ['queen','queen','king','king']; //create an array to store all cards
+var cards = ['queen','queen','king','king']; 
+var cardsInPlay = []; 
 
-var cardsInPlay = []; //empty array
-
-var cardOne = cards[0];  //add queen card to array
-
-cardsInPlay.push(cardOne); 
-
-var cardTwo = cards[2]; //add king card to the array
-
-cardsInPlay.push(cardTwo);
-
-console.log("User flipped " + cardOne);
-console.log("User flipped " + cardTwo);
-
-if (cardsInPlay.length ===2) { //see if two cards are in the array
-	if (cardsInPlay[0] === cardsInPlay[1]) { //if the two cards in the array is a match
+var checkForMatch = function () {
+	if (cardsInPlay[0] === cardsInPlay[1]) { 
 		alert("You found a match!");
-	} else {
+		} else {
 		alert("Sorry, try again!")
 	}
-}
+};
+
+var flipCard = function (cardId) {
+	cardsInPlay.push(cards[cardId]);
+	console.log("User Flipped " + cards[cardId]);
+	if (cardsInPlay.length ===2) { 
+		checkForMatch();
+	}
+};
+
+/*var cardOne = cards[0];  Don't want to lose this! 
+cardsInPlay.push(cardOne);
+console.log("User flipped " + cardOne);
+
+var cardTwo = cards[2]; Same here! :)
+cardsInPlay.push(cardTwo);
+console.log("User flipped " + cardTwo);*/
